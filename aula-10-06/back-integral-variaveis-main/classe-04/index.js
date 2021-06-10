@@ -5,4 +5,4 @@ const tempo = 5;
 
 montante = capital * Math.pow((1 + (taxa/100)), tempo);
 
-console.log(`O valor do montante é: ${Math.round(montante)}`);
+console.log(`O valor do montante é de R$${Math.round(montante)}`);
