@@ -8,6 +8,7 @@ Para calcularmos o IMC de alguém, podemos utilizar a seguinte fórmula:
 
 ![I = \frac{P}{A²}](https://i.imgur.com/k1TLYyC.png)
 
+
 Onde,
 
 P: peso da pessoa
