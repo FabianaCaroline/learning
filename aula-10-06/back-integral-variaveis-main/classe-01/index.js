@@ -4,4 +4,4 @@ const peso = 76;
 
 imc = peso/Math.pow(altura,2);
 
-console.log(imc.toFixed(2));
+console.log("O resultado do IMC calculado é: " + imc.toFixed(2));
