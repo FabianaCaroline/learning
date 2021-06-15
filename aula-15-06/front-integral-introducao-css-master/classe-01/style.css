@@ -1,0 +1,12 @@
+img{
+    border-radius: 10px;
+}
+
+body{
+    background-color: burlywood;
+    padding: 50px;
+}
+
+p, ul{
+    margin-bottom: 100px;
+}
