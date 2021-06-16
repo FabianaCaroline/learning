@@ -1,6 +1,6 @@
 const caractere = "E";
 let vogal = ['a', 'e', 'i', 'o', 'u'];
-let vogalMaiuscula = ['A', 'E', 'I', 'O', 'U'];
+let vogalMaiuscula = ['A', 'E', 'I', 'O', 'U']
 
 if((typeof caractere) == "string"){
     if(vogal.includes(caractere)){
