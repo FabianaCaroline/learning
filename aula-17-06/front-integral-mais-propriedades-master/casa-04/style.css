@@ -1,0 +1,60 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #456392;
+    min-width: 100vh;
+}
+
+.card{
+    background-color: #FFFFFF;
+    width: 608px;
+    height: 728px;
+    text-align: center;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 20px;
+    box-shadow: 8px 0px 30px 0px #163F78;
+}
+
+img{
+    border-radius: 50%;
+    border: 10px solid #ECF3FC;
+    margin-top: 60px;
+}
+
+.profile-name{
+    margin-top: 50px;
+}
+
+.profile-name h1{
+    font-size: 48px;
+    font-weight: 700;
+    color: #131E30;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+}
+
+.profile-name p{
+    font-size: 36px;
+    font-weight: 400;
+    color: #131E30;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+}
+
+.follow-data{
+    margin-top: 80px;
+}
+
+.follow-data p{
+    text-align: center;
+    font-size: 36px;
+    font-weight: 400;
+    color: #000000;
+    font-family: 'Mulish', sans-serif;
+    font-style: normal;
+}
