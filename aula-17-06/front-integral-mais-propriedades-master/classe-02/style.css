@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;;
+}
+body{
+    background-color: #F2F5FE;
+    text-align: center;
+    min-width: 100vh;
+}
+div{
+    margin: auto;
+    text-align: center;
+}
+
+
+.card-citacao{
+    background-color: #FFFFFF;
+    width: 505px;
+    height: 510px;
+    margin-top: 123px;
+    padding: 85px;
+    border-radius: 10px;
+}
+.imagem-aspas{
+    width: 100%;
+    text-align: left;
+}
+.trecho{
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+    font-size: 22px;
+    text-align: left;
+    margin-top: 15px;
+    color: #101439;
+    width: 323px;
+    line-height: 36px;
+}
+.autor{
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    text-align: left;
+    margin-top: 38px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #101439;
+}
+
+
+.card-inscrever{
+    background-color: #101439;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    width: 431px;
+    height: 391px;
+    margin-top: 126px;
+    margin-bottom: 50px;
+    padding: 60px;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+.card-inscrever h1{
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: left;
+}
+.card-inscrever h2{
+    font-family: 'Merriweather', serif;
+    font-size: 22px;
+    font-weight: 400;
+    text-align: left;
+    margin-top: 13px;
+}
+.card-inscrever > p{
+    font-size: 18px;
+    font-weight: 400;
+    text-align: left;
+    margin-top: 13px;
+    line-height: 28px;
+}
+.button{
+    background-color: #FFFFFF;
+    color: #101439;
+    font-weight: 700;
+    width: 311px;
+    height: 77px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 24px 0px;
+    margin-top: 55px;
+}
+
