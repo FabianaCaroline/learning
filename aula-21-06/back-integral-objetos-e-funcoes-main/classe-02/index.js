@@ -13,9 +13,15 @@ const carro = {
         if (!this.ligado) {
             console.log("Este carro já está desligado.");
         } else{
-            this.ligado = false;
-            this.velocidade = 0;
-            console.log(`Carro desligado. Velocidade: ${this.velocidade}.`);
+            if(this.velocidade>0){
+                this.ligado = false;
+                console.log(`Carro desligado. Velocidade: ${this.velocidade}.`);
+            } else{
+                while(this.velocidade>0){
+                    this.desacelerar();
+                }
+                this.ligado = false;
+            }
         }
     },
     acelerar: function(){
