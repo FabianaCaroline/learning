@@ -1,0 +1,220 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+}
+header{
+    background-image: url(assets/image-header.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 800px;
+}
+
+
+
+.cabecalho{
+    display: flex;
+    justify-content: space-between;
+    padding: 34px 40px;
+    width: 100%;
+    text-align: center;
+}
+.hero{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    font-family: 'Fraunces', serif;
+    font-size: 56px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+.container{
+    display: flex;
+    height: 589px;
+}
+.section-text{
+    display: flex;
+    flex-direction: column;
+    padding: 110px;
+}
+.graphic-design{
+    background-image: url(assets/image-graphic-design.jpg);
+    background-repeat: no-repeat;
+    width: 50%;
+}
+.photography{
+    background-image: url(assets/image-photography.jpg);
+    background-repeat: no-repeat;
+    width: 50%;
+}
+.services{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.testimoniais{
+    height: 777px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.client{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 81px 30px 0 30px;
+    width: 350px;
+    text-align: center;
+}
+.gallery{
+    display: flex;
+    height: 447px;
+}
+.rodape{
+    background-color: #90D4C6;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 72px;
+}
+
+
+
+
+
+.cabecalho ul{
+    display: flex;
+}
+.cabecalho li{
+    list-style: none;
+    margin: 0 30px;
+    font-family: 'Barlow', sans-serif;
+}
+.cabecalho a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+a.contact-btn{
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #24303E;
+    padding: 16px 30px; 
+    background-color: white;
+    border-radius: 28px;
+}
+.hero h1{
+    margin: 70px 0 70px 0;
+}
+.container img{
+    width: 50%;
+}
+.section-text h1{
+    color: #24303E;
+    font-family: 'Fraunces', serif;
+    font-size: 40px;
+    font-weight: 900;
+}
+.section-text p{
+    color: #808397;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 30px;
+    margin-top: 32px;
+    margin-bottom: 40px;
+}
+.section-text a{
+    color: #24303E;
+    font-family: 'Fraunces', serif;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.services h1{
+    color: #24554A;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 28px;
+    margin-bottom: 24px;
+}
+.services p{
+    color: #3E7467;
+    width: 339px;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 27px;
+}
+.testimoniais > div{
+    display: flex;
+}
+.testimoniais h1{
+    color: #A7AAAD;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+.client img{
+    width: 72px;
+    border-radius: 50%;
+}
+.client p{
+    color: #5B636D;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 32px;
+    margin: 65px 0;
+}
+.client h2{
+    color: #24303E;
+    font-family: 'Fraunces', serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 9px;
+}
+.client h3{
+    color: #A7AAAD;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+.menus-navegacao ul{
+    display: flex;
+    margin: 40px 0 88px 0;
+}
+.menus-navegacao li{
+    list-style: none;
+    margin: 0 47px;
+    color: #458D7E;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+.social-medias img{
+    margin: 0 20px;   
+}
+
+
+.photography, .graphic-design{
+    padding: 60px;
+    text-align: center;
+}
