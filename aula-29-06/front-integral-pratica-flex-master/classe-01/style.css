@@ -5,6 +5,7 @@
 }
 
 body{
+    background-color: #F2F2F2;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -14,6 +15,7 @@ body{
 .container{
     display: flex;
     width: 920px;
+    overflow: auto;
     border-radius: 8px;
     
 }
