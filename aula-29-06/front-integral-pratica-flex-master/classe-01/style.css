@@ -1,0 +1,68 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    display: flex;
+    width: 920px;
+    border-radius: 8px;
+    
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 48px;
+}
+.sedan{
+    background-color: #E28625;
+}
+.suv{
+    background-color: #006971;
+}
+.luxury{
+    background-color: #004140;
+}
+
+.card h1{
+    font-family: 'Big Shoulders Display', cursive;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: white;
+    margin: 35px 0 25px 0;
+}
+.card p{
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    color: white;
+    margin-bottom: 83px;
+}
+.card a{
+    text-decoration: none;
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    background-color: white;
+    padding: 12px 31px;
+    border-radius: 25px;
+    text-align: center;
+}
+.sedan a{
+    color: #E28625;
+}
+.suv a{
+    color: #006971;
+}
+.luxury a{
+    color: #004140;
+}
