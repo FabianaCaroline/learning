@@ -1,0 +1,155 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+body{
+    background-color: #DADDE1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 24px;
+}
+
+
+
+.container-nearby-friends{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 24px 74px -20px rgba(130, 148, 173, 0.44);
+    padding: 55px 50px;
+    margin: 35px;
+}
+.nearby{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 33px;
+}
+.container-friend-cards{
+    display: flex;
+    justify-content: space-between;
+}
+.friend-card{
+    width: 135px;
+    height: 195px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid #E5E5E5;
+    border-radius: 10px;
+    padding: 25px 34px;
+    margin-left: 9px;
+}
+.container-contacts{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 48px 49px;
+    background-color: white;
+    box-shadow: 0px 24px 74px -20px rgba(130, 148, 173, 0.44);
+    border-radius: 15px;
+    width: 451px;
+}
+.contacts{
+    margin: 11px 10px 55px 1px;
+    display: flex;
+    align-items: baseline;
+}
+.friend-chat{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.profile-photo{
+    width: 66px;
+    border-radius: 50%;
+}
+.cht-icon{
+    justify-content: flex-end;
+    width: 34px;
+}
+.icon-soma{
+    background-color: black;
+    border-radius: 50%;
+    padding: 8px;
+    width: 40px;
+}
+.photo{
+    display: flex;
+    align-items: center;
+}
+
+
+.photo > div{
+    display: flex;
+    flex-direction: column;
+}
+.nearby h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+}
+.nearby a{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: black;
+}
+.friend-card img{
+    border-radius: 50%;
+}
+.friend-card h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin: 15px 0 22px 0;
+}
+.contacts h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    margin-right: 10px;
+}
+.contacts h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    border: 1px solid black;
+    border-radius: 50%;
+    padding: 4px;
+    text-align: center;
+}
+.friend-chat img{
+    margin: 0 20px 0 1px;
+}
+.friend-chat h2{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.friend-chat p{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+}
+.container-contacts a{
+    text-decoration: none;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    padding: 18px 30px;
+    background-color: black;
+    border-radius: 60px;
+    margin-top: 9px;
+}
