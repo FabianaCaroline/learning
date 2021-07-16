@@ -9,6 +9,9 @@ input{
     height: 48px;
     padding: 12px;
 }
+input:focus{
+    border: 2px solid rgba(51, 50, 61, 1);
+}
 button{
     background-color: rgba(32, 58, 76, 1);
     text-decoration: none;
