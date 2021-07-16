@@ -1,0 +1,125 @@
+.hero-section{
+    height: 500px;
+    width: 1110px;
+}
+.section-content{
+    margin: 115px 0 64px 0;
+    width: 1110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: rgba(51, 50, 61, 1);
+}
+.content-aside{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 350px;
+    border-top: 1px solid rgba(51, 50, 61, 0.15);
+    border-bottom: 1px solid rgba(51, 50, 61, 0.15);
+    padding: 48px 0;
+}
+.tags{
+    margin: 53px 0 32px 0;
+}
+.project-section{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 635px;
+}
+.project-text{
+    margin-bottom: 40px;
+}
+.links-section{
+    width: 1110px;
+    display: flex;
+    justify-content: space-between;
+}
+.links-section{
+    border-top: 1px solid rgba(51, 50, 61, 0.15);
+    border-bottom: 1px solid rgba(51, 50, 61, 0.15);
+    padding: 32px 0;
+}
+
+
+
+
+.hero-section img{
+    width: 100%;
+}
+.content-aside h1{
+    font-family: 'Ibarra Real Nova', serif;
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 29px;
+}
+.content-aside>p{
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 24px;
+}
+.tags a, .tags p{
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    color: rgba(95, 180, 162, 1);
+}
+.tags p{
+    line-height: 32px;
+}
+.tags a:hover{
+    text-decoration: underline;
+}
+.project-section h1{
+    width: 635px;
+    font-family: 'Ibarra Real Nova', serif;
+    font-weight: 400;
+    font-size: 32px;
+    margin-bottom: 28px;
+}
+.project-section p{
+    font-family: 'Public Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 30px;
+}
+.project-section a{
+    color: rgba(51, 50, 61, 1);
+}
+.preview-estatico img{
+    width: 635px;
+    margin-bottom: 32px;
+}
+.links-section div{
+    display: flex;
+    align-items: center;
+}
+.links-section a{
+    text-decoration: none;
+    color: rgba(51, 50, 61, 1);
+}
+.links-section a:hover{
+    text-decoration: underline;
+}
+.links-section h1{
+    font-family: 'Ibarra Real Nova', serif;
+    font-weight: 400;
+    font-size: 32px;
+}
+.links-section p{
+    font-family: 'Public Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+}
+.link-left a{
+    text-align: left;
+    margin-right: 32px;
+}
+.link-right a{
+    text-align: right;
+    margin-left: 32px;
+}

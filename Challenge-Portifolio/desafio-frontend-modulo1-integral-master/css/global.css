@@ -1,0 +1,116 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header{
+    width: 100%;
+    height: 150px;
+    padding: 0px 164px;
+    background-color: #FAFAFA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+footer{
+    background-color: #33323D;
+    width: 100%;
+    height: 80px;
+    padding: 0px 164px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+header ul{
+    display: flex;
+}
+header li{
+    list-style: none;
+    margin: 0 22px;
+}
+header a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #33323D;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+header a:hover{
+    color: #5FB4A2;
+}
+footer ul{
+    display: flex;
+}
+footer li{
+    list-style: none;
+    margin: 0 22px;
+}
+footer li>a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+footer>div{
+    display: flex;
+    align-items: center;
+}
+footer img{
+    margin-right: 48px;
+}
+
+
+.contato-section{
+    width: 100%;
+    height: 314px;
+    background-color: #FAFAFA;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 164px;
+    margin-top: 150px;
+}
+.button{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #33323D;
+    font-family: 'Public Sans', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    padding: 17px 50px;
+    border: 1px solid #33323D;
+}
+.button:hover{
+    color: #FAFAFA;
+    background-color: #33323D;
+}
+
+
+
+.contato-section h1{
+    font-family: 'Ibarra Real Nova', serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 42px;
+    color: #33323D;
+    max-width: 367px;
+}
+.redes-sociais img{
+    margin: 8px;
+}
