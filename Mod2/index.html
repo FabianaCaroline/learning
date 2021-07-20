@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Imagens Aleatórias</title>
+
+        <style>
+            body{
+                min-height: 100vh;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <img>
+        <button onclick="gerarImagem()">Imagem aleatória</button>
+    </body>
+    <script>
+        function gerarImagem() {
+            const img = document.querySelector("img");
+            const idImage = parseInt(Math.random() * 100);
+
+            img.src = `https://picsum.photos/id/${idImage}/200/300`
+        }
+    </script>
+</html>
