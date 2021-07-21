@@ -62,6 +62,16 @@
     </body>
 
     <script>
+        function mostrarPopup() {
+            const popup = document.querySelector(".popup");
+            
+            if (popup.classList.contains('show')) {
+                popup.classList.remove('show');
+            } else{
+                popup.classList.add('show');
+            }
+            
+        }
     </script>
 
 </html>
