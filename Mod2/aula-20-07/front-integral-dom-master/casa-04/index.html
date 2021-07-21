@@ -7,7 +7,10 @@
     <title>Contatos</title>
 
     <style>
-
+        li>img{
+            border-radius: 50%;
+            width: 300px;
+        }
     </style>
 </head>
 
@@ -91,6 +94,28 @@
         descricao: '🐱🐶',
         imagem: `${caminhoImagens}/lurdes.jpg`
     }];
+
+    const contatosOrdenados = contatos.sort((a, b) => {
+        if (a.mensagens<b.mensagens) {
+            return 1;
+        } else {
+            return -1
+        }
+    });
+    const top5Contatos = contatosOrdenados.splice(0, 6);
+
+    const contatosHtml = document.querySelector(".contatos");
+
+    for (let i = 0; i < 5; i++) {
+        let li = contatosHtml.children[i];
+        let nome = li.querySelector(".nome");
+        let descricao = li.querySelector(".descricao");
+
+        li.children[0].src = top5Contatos[i].imagem;
+        nome.textContent = top5Contatos[i].nome;
+        descricao.textContent = top5Contatos[i].descricao;
+        
+    }
 </script>
 
 </html>
