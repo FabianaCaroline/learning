@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #9AA6CF;
+    font-family: 'Open Sans', sans-serif;
+
+    min-height: 100vh;
+    padding: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+
+    width: 256px;
+    margin-bottom: 50px;
+
+    align-self: center;
+}
+button{
+    background-color: rgba(95, 130, 255, 1);
+
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+
+    padding: 45px 0 45px 0;
+
+    border: none;
+    border-radius: 5px;
+}
+button:hover{
+    cursor: pointer;
+
+    background-color: rgba(9, 61, 243, 1);
+    box-shadow: 0px 7px 24px rgba(9, 61, 243, 0.3);
+}
+
+
+
+.container{
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 34px 44px rgba(160, 181, 255, 0.28);
+
+    width: 693px;
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+}
+.inputs-container{
+    display: flex;
+    flex-direction: column;
+}
+.code-date-container{
+    display: flex;
+    justify-content: space-between;
+}
+.info{
+    font-size: 14px;
+    font-weight: 400;
+    text-align: center;
+
+    width: 533px;
+    margin: 30px 0 30px 0;
+
+    align-self: center;
+}
+
+
+
+
+.total-container h2{
+    font-weight: 700;
+    font-size: 22px;
+
+    margin-bottom: 10px;
+}
+.total-container p{
+    font-weight: 400;
+    font-size: 16px;
+
+    margin-bottom: 40px;
+}
+.inputs-container label{
+    font-weight: 700;
+    font-size: 14px;
+
+    margin-bottom: 5px;
+}
+.inputs-container input{
+    all: unset;
+    box-sizing: border-box;
+
+    width: 100%;
+    padding: 26px;
+    margin-bottom: 20px;
+
+    font-weight: 400;
+    font-size: 16px;
+    color: black;
+
+    border: 1px solid rgba(206, 213, 236, 1);
+    border-radius: 5px;
+}
+.inputs-container input:focus{
+    border: 1px solid #5F82FF;
+}
+.code-date-container input{
+    width: 288px;
+}
