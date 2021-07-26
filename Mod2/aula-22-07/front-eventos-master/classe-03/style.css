@@ -32,6 +32,9 @@ body {
   padding: 0.7rem;
   border: 0;
 }
+.btn:hover{
+  cursor: pointer;
+}
 
 .inscrito {
   background-color: grey;
