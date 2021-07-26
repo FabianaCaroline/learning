@@ -13,7 +13,14 @@ body {
 input {
   margin-bottom: 16px;
 }
+input:focus-visible{
+  outline-color: rgba(16, 16, 16, 0.5);
+
+}
 
 .acerto {
   border: 3px solid green;
+}
+.erro {
+  border: 3px solid red;
 }
