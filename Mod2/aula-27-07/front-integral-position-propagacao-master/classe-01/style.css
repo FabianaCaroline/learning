@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #EFDADA;
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-weight: 700;
+    font-size: 30px;
+
+    margin-bottom: 74px;
+}
+label{
+    margin-bottom: 12px;
+}
+input{
+    all: unset;
+    box-sizing: border-box;
+
+    height: 46px;
+    width: 100%;
+    padding: 15px;
+
+    font-weight: 500;
+    font-size: 14px;
+
+    border: 1px solid #4E4E4E;
+    border-radius: 8px;
+}
+button{
+    all: unset;
+    box-sizing: border-box;
+
+    background-color: #13A1F0;
+
+    color: white;
+    font-weight: 700;
+    font-size: 14px;
+
+    margin-top: 42px;
+    padding: 13px 36px;
+
+    border-radius: 8px;
+}
+
+
+.container{
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 470px;
+    padding: 40px 60px;
+
+    border-radius: 12px;
+    box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+
+    font-family:  Roboto, 'Open Sans', sans-serif;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 100%;
+    margin-bottom: 20px;
+
+    font-weight: 500;
+    font-size: 14px;
+}
+.senha{
+    width: 100%;
+
+    position: relative;
+}
+.senha input{
+    padding-right: 40px;
+}
+.senha img{
+    background-color: white;
+
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    top: 15px;
+}
+
