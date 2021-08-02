@@ -14,7 +14,7 @@ body{
     flex-direction: column;
     align-items: center;
 }
-p{
+body > p{
     width: 994px;
     margin-bottom: 76px;
 
@@ -37,24 +37,28 @@ p{
     justify-content: center;
     align-items: center;
 
-    border-radius: 50%;
-
     position: fixed;
-    right: 85px;
-    bottom: 85px;
+    right: 25px;
+    bottom: 25px;
+
+    border-radius: 50%;
 }
-.btn-faq:hover{
+.btn-faq img:hover{
     cursor: pointer;
 }
 .modal{
     background-color: white;
 
-    width: 452px;
+    width: 350px;
     padding: 40px 50px;
 
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+
+    position: absolute;
+    bottom: 110px;
+    right: 50px;
 
     font-family: 'Open Sans', sans-serif;
     color: black;
@@ -64,20 +68,24 @@ p{
 }
 .modal h1{
     font-weight: 700;
-    font-size: 42px;
+    font-size: 32px;
 
     margin-bottom: 41px;
 }
 .modal h2{
     font-weight: 400;
-    font-size: 30px;
+    font-size: 20px;
 
     margin-bottom: 12px;
 }
 .modal p{
     font-weight: 300;
-    font-size: 28px;
+    font-size: 18px;
 
     margin-bottom: 40px;
+}
+
+.escondido{
+    display: none;
 }
 
