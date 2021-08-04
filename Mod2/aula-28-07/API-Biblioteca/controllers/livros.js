@@ -20,6 +20,7 @@ function consultarLivroID(req, res) {
         if (livroEncontrado) {
             res.json(livroEncontrado);
         } else {
+            res.status(400);
             res.json(nEncontrado);
         }
     }
@@ -58,6 +59,7 @@ function substituirLivro(req, res) {
         livroEncontrado.numPaginas = req.body.numPaginas;
         res.json(substituido);
     } else {
+        res.status(400);
         res.json(nEncontrado);
     }
 }
@@ -88,6 +90,7 @@ function alterarLivro(req, res) {
 
         res.json(alterado);
     } else {
+        res.status(400);
         res.json(nEncontrado);
     }
 }
@@ -107,6 +110,7 @@ function deletarLivro(req, res) {
         livros.splice(livros.indexOf(livroEncontrado), 1);
         res.json(removido);
     } else {
+        res.status(400);
         res.json(nEncontrado);
     }
 }
