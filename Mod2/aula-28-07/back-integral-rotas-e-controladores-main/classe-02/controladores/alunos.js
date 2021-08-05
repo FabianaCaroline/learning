@@ -69,6 +69,7 @@ function getAlunos(req, res) {
     res.status(200);
     res.json(alunos);
 };
+
 function getAlunoPorID(req, res) {
     const erro = validarDadosRequisicao(req);
 
@@ -96,7 +97,7 @@ function postAluno(req, res) {
     } else {
         let proximoId = 1;
         if (alunos.length > 0) {
-            const ultimoAluno = alunos.slice(-1);
+            const ultimoAluno = alunos[alunos.length-1];
             proximoId = ultimoAluno.id + 1;
         }
 
@@ -116,8 +117,25 @@ function postAluno(req, res) {
 }
 
 
+function deleteAluno(req, res) {
+    const erro = validarDadosRequisicao(req);
+
+    if (erro) {
+        const mensagemErro = { erro: erro.mensagem };
+
+        res.status(erro.status);
+        res.json(mensagemErro);
+    } else {
+        const index = alunos.indexOf(alunos.find( aluno => aluno.id === Number(req.params.idAluno)));
+        const alunoRemovido = alunos.splice(index, 1);
+        res.status(200);
+        res.json(alunoRemovido);
+    }
+}
+
 module.exports = {
     getAlunos,
     getAlunoPorID,
-    postAluno
+    postAluno,
+    deleteAluno
 };
