@@ -1,4 +1,5 @@
 const alunos = require("../dados/alunos");
+const cursos = require("../dados/cursos");
 
 
 function validarDadosRequisicao(req) {
@@ -55,6 +56,10 @@ function validarDadosRequisicao(req) {
         } else if (typeof req.body.curso !== 'string' || !req.body.curso.trim()) {
             cont++;
             erro.mensagem[`erro${cont}`] = "A propriedade curso precisa ser do tipo texto";
+        } else if (!cursos.includes(req.body.curso)) {
+            cont++;
+            erro.mensagem[`erro${cont}`] = "Este curso não está presente no catálogo, insira um curso válido";
+            erro.mensagem.cursos = cursos;
         }
 
         if (cont > 0) {
@@ -97,7 +102,7 @@ function postAluno(req, res) {
     } else {
         let proximoId = 1;
         if (alunos.length > 0) {
-            const ultimoAluno = alunos[alunos.length-1];
+            const ultimoAluno = alunos[alunos.length - 1];
             proximoId = ultimoAluno.id + 1;
         }
 
@@ -126,7 +131,7 @@ function deleteAluno(req, res) {
         res.status(erro.status);
         res.json(mensagemErro);
     } else {
-        const index = alunos.indexOf(alunos.find( aluno => aluno.id === Number(req.params.idAluno)));
+        const index = alunos.indexOf(alunos.find(aluno => aluno.id === Number(req.params.idAluno)));
         const alunoRemovido = alunos.splice(index, 1);
         res.status(200);
         res.json(alunoRemovido);
