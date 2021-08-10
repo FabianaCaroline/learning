@@ -1,25 +1,37 @@
 const alunos = require("../dados/alunos");
 const cursos = require("../dados/cursos");
 
+function verificarErro(erro, res) {
+    if (erro) {
+        const mensagemErro = { erro: erro.mensagem };
 
-function validarDadosRequisicao(req) {
+        res.status(erro.status);
+        res.json(mensagemErro);
+    }
+}
+
+function validarIDAluno(req) {
     const aluno = alunos.find(aluno => aluno.id === Number(req.params.idAluno));
 
-    //validar id aluno
     if (req.params.idAluno && isNaN(Number(req.params.idAluno))) {
         return {
             mensagem: "O ID precisa ser um número",
             status: 400
         };
     } else if (req.params.idAluno && !aluno) {
-        return {
-            mensagem: "Aluno não encontrado",
-            status: 404
-        };
+        if (req.method !== "PUT") {
+            return {
+                mensagem: "Aluno não encontrado",
+                status: 404
+            };
+        } else {
+            return 1;
+        }
     }
+}
 
-    //validar campos da inserção de aluno
-    if (req.method === "POST") {
+function validarCamposRequisicao(req) {
+    if (req.method === "POST" || req.method === "PUT") {
         const erro = {
             mensagem: {},
             status: 404
@@ -76,30 +88,52 @@ function getAlunos(req, res) {
 };
 
 function getAlunoPorID(req, res) {
-    const erro = validarDadosRequisicao(req);
+    let erro = validarIDAluno(req);
 
-    if (erro) {
-        const mensagemErro = { erro: erro.mensagem };
+    /* Se houver algum erro a função vai enviar uma resposta para a requisição e a função postAluno encerra a execução nessa linha */
+    verificarErro(erro, res);
 
-        res.status(erro.status);
-        res.json(mensagemErro);
-    } else {
-        res.status(200);
-        res.json(aluno);
-    }
+    const aluno = alunos.find(aluno => aluno.id === Number(req.params.idAluno));
+
+    res.status(200);
+    res.json(aluno);
 };
 
 
 
 function postAluno(req, res) {
-    const erro = validarDadosRequisicao(req);
+    let erro = validarCamposRequisicao(req);
 
-    if (erro) {
-        const mensagemErro = { erro: erro.mensagem };
+    verificarErro(erro, res);
 
-        res.status(erro.status);
-        res.json(mensagemErro);
-    } else {
+    let proximoId = 1;
+    if (alunos.length > 0) {
+        const ultimoAluno = alunos[alunos.length - 1];
+        proximoId = ultimoAluno.id + 1;
+    }
+
+    const novoAluno = {
+        id: proximoId,
+        nome: req.body.nome,
+        sobrenome: req.body.sobrenome,
+        idade: req.body.idade,
+        curso: req.body.curso
+    }
+
+    alunos.push(novoAluno);
+
+    res.status(201);
+    res.end();
+}
+
+function putAluno(req, res) {
+    let erro = validarIDAluno(req);
+
+    if (erro === 1) {
+        erro = validarCamposRequisicao(req);
+
+        verificarErro(erro, res);
+
         let proximoId = 1;
         if (alunos.length > 0) {
             const ultimoAluno = alunos[alunos.length - 1];
@@ -118,19 +152,36 @@ function postAluno(req, res) {
 
         res.status(201);
         res.end();
+
+    } else {
+        verificarErro(erro, res);
+
+        erro = validarCamposRequisicao(req);
+        verificarErro(erro, res);
+
+        const aluno = alunos.find(aluno => aluno.id === Number(req.params.idAluno));
+        
+        aluno.nome = req.body.nome;
+        aluno.sobrenome = req.body.sobrenome;
+        aluno.idade = req.body.idade;
+        aluno.curso = req.body.curso;
+
+        res.status(201);
+        res.end();        
     }
+
+
 }
 
 
+
 function deleteAluno(req, res) {
-    const erro = validarDadosRequisicao(req);
+    let erro = validarIDAluno(req);
 
-    if (erro) {
-        const mensagemErro = { erro: erro.mensagem };
-
-        res.status(erro.status);
-        res.json(mensagemErro);
-    } else {
+    if (!erro) {
+        erro = validarCamposRequisicao(req);
+    }
+    /* verificarErro(erro, res) */  else {
         const index = alunos.indexOf(alunos.find(aluno => aluno.id === Number(req.params.idAluno)));
         const alunoRemovido = alunos.splice(index, 1);
         res.status(200);
@@ -142,5 +193,6 @@ module.exports = {
     getAlunos,
     getAlunoPorID,
     postAluno,
+    putAluno,
     deleteAluno
 };
