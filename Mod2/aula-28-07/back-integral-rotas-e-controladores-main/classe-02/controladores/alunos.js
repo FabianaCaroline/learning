@@ -31,41 +31,41 @@ function validarIDAluno(req) {
 }
 
 function validarCamposRequisicao(req) {
-    if (req.method === "POST" || req.method === "PUT") {
+    if (req.method === "POST" || req.method === "PUT" || req.method === "PATCH") {
         const erro = {
             mensagem: {},
             status: 404
         }
         let cont = 0;
 
-        if (!req.body.nome) {
+        if (!req.body.nome && req.method !== "PATCH") {
             cont++;
             erro.mensagem[`erro${cont}`] = "O nome é obrigatório";
-        } else if (typeof req.body.nome !== 'string' || !req.body.nome.trim()) {
+        } else if ((typeof req.body.nome !== 'string' || !req.body.nome.trim()) && req.body.nome) {
             cont++;
             erro.mensagem[`erro${cont}`] = "O nome precisa ser uma palavra";
         }
 
-        if (!req.body.sobrenome) {
+        if (!req.body.sobrenome && req.method !== "PATCH") {
             cont++;
             erro.mensagem[`erro${cont}`] = "O sobrenome é obrigatório";
-        } else if (typeof req.body.sobrenome !== 'string' || !req.body.sobrenome.trim()) {
+        } else if ((typeof req.body.sobrenome !== 'string' || !req.body.sobrenome.trim()) && req.body.sobrenome) {
             cont++;
             erro.mensagem[`erro${cont}`] = "O sobrenome precisa ser uma palavra";
         }
 
-        if (!req.body.idade) {
+        if (!req.body.idade && req.method !== "PATCH") {
             cont++;
             erro.mensagem[`erro${cont}`] = "A idade é obrigatória";
-        } else if (req.body.idade !== parseInt(req.body.idade) || req.body.idade < 18) {
+        } else if ((req.body.idade !== parseInt(req.body.idade) || req.body.idade < 18) && req.body.idade) {
             cont++;
             erro.mensagem[`erro${cont}`] = "A idade precisa ser um número inteiro maior que 17";
         }
 
-        if (!req.body.curso) {
+        if (!req.body.curso && req.method !== "PATCH") {
             cont++;
             erro.mensagem[`erro${cont}`] = "O curso é obrigatório";
-        } else if (typeof req.body.curso !== 'string' || !req.body.curso.trim()) {
+        } else if ((typeof req.body.curso !== 'string' || !req.body.curso.trim()) && req.body.curso) {
             cont++;
             erro.mensagem[`erro${cont}`] = "A propriedade curso precisa ser do tipo texto";
         } else if (!cursos.includes(req.body.curso)) {
@@ -90,13 +90,14 @@ function getAlunos(req, res) {
 function getAlunoPorID(req, res) {
     let erro = validarIDAluno(req);
 
-    /* Se houver algum erro a função vai enviar uma resposta para a requisição e a função postAluno encerra a execução nessa linha */
-    verificarErro(erro, res);
-
-    const aluno = alunos.find(aluno => aluno.id === Number(req.params.idAluno));
-
-    res.status(200);
-    res.json(aluno);
+    if (erro) {
+        verificarErro(erro, res);
+    } else {
+        const aluno = alunos.find(aluno => aluno.id === Number(req.params.idAluno));
+    
+        res.status(200);
+        res.json(aluno);
+    }
 };
 
 
@@ -104,26 +105,28 @@ function getAlunoPorID(req, res) {
 function postAluno(req, res) {
     let erro = validarCamposRequisicao(req);
 
-    verificarErro(erro, res);
-
-    let proximoId = 1;
-    if (alunos.length > 0) {
-        const ultimoAluno = alunos[alunos.length - 1];
-        proximoId = ultimoAluno.id + 1;
+    if (erro) {
+        verificarErro(erro, res);
+    } else{
+        let proximoId = 1;
+        if (alunos.length > 0) {
+            const ultimoAluno = alunos[alunos.length - 1];
+            proximoId = ultimoAluno.id + 1;
+        }
+    
+        const novoAluno = {
+            id: proximoId,
+            nome: req.body.nome.trim(),
+            sobrenome: req.body.sobrenome.trim(),
+            idade: req.body.idade,
+            curso: req.body.curso.trim()
+        }
+    
+        alunos.push(novoAluno);
+    
+        res.status(201);
+        res.end();
     }
-
-    const novoAluno = {
-        id: proximoId,
-        nome: req.body.nome,
-        sobrenome: req.body.sobrenome,
-        idade: req.body.idade,
-        curso: req.body.curso
-    }
-
-    alunos.push(novoAluno);
-
-    res.status(201);
-    res.end();
 }
 
 function putAluno(req, res) {
@@ -142,10 +145,10 @@ function putAluno(req, res) {
 
         const novoAluno = {
             id: proximoId,
-            nome: req.body.nome,
-            sobrenome: req.body.sobrenome,
+            nome: req.body.nome.trim(),
+            sobrenome: req.body.sobrenome.trim(),
             idade: req.body.idade,
-            curso: req.body.curso
+            curso: req.body.curso.trim()
         }
 
         alunos.push(novoAluno);
@@ -160,32 +163,65 @@ function putAluno(req, res) {
         verificarErro(erro, res);
 
         const aluno = alunos.find(aluno => aluno.id === Number(req.params.idAluno));
-        
-        aluno.nome = req.body.nome;
-        aluno.sobrenome = req.body.sobrenome;
+
+        aluno.nome = req.body.nome.trim();
+        aluno.sobrenome = req.body.sobrenome.trim();
         aluno.idade = req.body.idade;
-        aluno.curso = req.body.curso;
+        aluno.curso = req.body.curso.trim();
 
         res.status(201);
-        res.end();        
+        res.end();
+    }
+}
+
+function patchAluno(req, res) {
+    let erro = validarIDAluno(req);
+
+    if (erro) {
+        verificarErro(erro, res);
+    } else {
+        erro = validarCamposRequisicao(req);
+        if (erro) {
+            verificarErro(erro, res);
+        } else {
+            const aluno = alunos.find(aluno => aluno.id === Number(req.params.idAluno));
+        
+            if (req.body.nome) {
+                aluno.nome = req.body.nome.trim();
+            }
+            if (req.body.sobrenome) {
+                aluno.sobrenome = req.body.sobrenome.trim();
+            }
+            if (req.body.idade) {
+                aluno.idade = req.body.idade;
+            }
+            if (req.body.curso) {
+                aluno.curso = req.body.curso.trim();
+            }
+        
+            res.status(200);
+            res.end();
+        }
     }
 
 
 }
 
-
-
 function deleteAluno(req, res) {
     let erro = validarIDAluno(req);
 
-    if (!erro) {
+    if (erro) {
+        verificarErro(erro, res);
+    } else {
         erro = validarCamposRequisicao(req);
-    }
-    /* verificarErro(erro, res) */  else {
-        const index = alunos.indexOf(alunos.find(aluno => aluno.id === Number(req.params.idAluno)));
-        const alunoRemovido = alunos.splice(index, 1);
-        res.status(200);
-        res.json(alunoRemovido);
+        if (erro) {
+            verificarErro(erro, res);
+        } else {
+            const index = alunos.indexOf(alunos.find(aluno => aluno.id === Number(req.params.idAluno)));
+            const alunoRemovido = alunos.splice(index, 1);
+            res.status(200);
+            res.json(alunoRemovido);
+        }
     }
 }
 
@@ -194,5 +230,6 @@ module.exports = {
     getAlunoPorID,
     postAluno,
     putAluno,
+    patchAluno,
     deleteAluno
 };
