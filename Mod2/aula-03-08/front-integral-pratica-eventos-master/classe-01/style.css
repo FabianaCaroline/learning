@@ -17,7 +17,7 @@ body{
 section{
     width: 1290px;
     height: 100%;
-    padding: 152px 32px 152px;
+    padding: 152px 32px;
 
     position: absolute;
     right: 0;
@@ -36,7 +36,7 @@ section{
     position: fixed;
     top: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: 1;
 
     height: 100vh;
     width: 64px;
@@ -62,7 +62,7 @@ section{
     position: fixed;
     top: 0;
     bottom: 0;
-    z-index: 2;
+    z-index: 1;
 
     width: 199px;
 }
@@ -93,6 +93,9 @@ section{
     flex-direction: column;
     justify-content: space-between;
 }
+.card-img:hover{
+    cursor: pointer;
+}
 .card-img > div{
     display: flex;
     justify-content: space-between;
@@ -107,11 +110,62 @@ section{
     font-size: 20px;
     font-weight: 400;
 }
+.modal{
+    height: 100%;
+    width: 100%;
+
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 2;
+
+    background-color: rgba(0, 0, 0, 0.76);
+
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.modal > div {
+    width: 88px;
+}
 
 
+
+
+#img-modal{
+    width: 555px;
+
+}
 #home-icon > p{
     color: white;
 }
 #settings-icon{
     margin-bottom: 0;
+}
+#seta-proximo{
+    position: absolute;
+    right: 285px;
+}
+#seta-proximo:hover{
+    cursor: pointer;
+}
+#seta-anterior{
+    position: absolute;
+    left: 325px;
+}
+#seta-anterior:hover{
+    cursor: pointer;
+}
+#btn-fechar{
+    position: absolute;
+    right: 45px;
+    top: 60px;
+
+    width: 40px;
+    height: 40px;
+}
+#btn-fechar:hover{
+    cursor: pointer;
 }

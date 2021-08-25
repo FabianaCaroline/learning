@@ -30,14 +30,18 @@ const imagens = [{
 }];
 
 const galeria = document.querySelector(".galeria");
+const modal = document.querySelector(".modal");
+
 
 document.body.onload = adicionarImagensGaleria;
 
 function adicionarImagensGaleria() {
 
+    //criando imagens com a DOM
     imagens.forEach((x) => {
         const cardImg = document.createElement("div");
         cardImg.classList.add("card-img");
+        cardImg.setAttribute("data-index", imagens.indexOf(x));
 
         const img = document.createElement("img");
         img.setAttribute("src", x.src);
@@ -59,11 +63,74 @@ function adicionarImagensGaleria() {
 
         galeria.appendChild(cardImg);
     });
+
+    //adicionando Event Listeners
+    const card = document.querySelectorAll(".card-img");
+    card.forEach(x => {
+        x.addEventListener("click", (event) => {
+            const index = x.getAttribute("data-index");
+
+            modal.style.display = "flex";
+            modal.children[2].setAttribute("src", event.target.src);
+            modal.children[2].setAttribute("data-index", index);
+
+            setasModal(index);
+        });
+    });
 }
+
+function setasModal(index) {
+    const setaAnterior = document.querySelector("#seta-anterior");
+    const setaProximo = document.querySelector("#seta-proximo");
+
+    if (index === '0') {
+        setaAnterior.classList.add("oculto");
+
+    } else {
+        setaAnterior.classList.remove("oculto");
+    }
+
+    if (index === (imagens.length - 1).toString()) {
+        setaProximo.classList.add("oculto");
+    } else {
+        setaProximo.classList.remove("oculto");
+    }
+}
+
+modal.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+const img = document.querySelector("#img-modal");
+const setaProximo = document.querySelector("#seta-proximo");
+const setaAnterior = document.querySelector("#seta-anterior");
+
+img.addEventListener("click", (event) => {
+    event.stopPropagation();
+});
+
+setaAnterior.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    const index = Number(img.getAttribute("data-index")) - 1;
+    img.setAttribute("src", imagens[index].src);
+    img.setAttribute("data-index", index);
+    setasModal(index.toString());
+
+});
+
+setaProximo.addEventListener("click", (event) => {
+    event.stopPropagation();
+
+    const index = Number(img.getAttribute("data-index")) + 1;
+    img.setAttribute("src", imagens[index].src);
+    img.setAttribute("data-index", index);
+    setasModal(index.toString());
+});
 
 const menuLateral = document.querySelector(".menu-lateral");
 const hamburguerIcon = document.querySelector("#hamburguer-icon");
-const legendaIcone = document.querySelectorAll(".oculto");
+const legendaIcone = document.querySelectorAll("p");
 
 hamburguerIcon.addEventListener("click", () => {
 
