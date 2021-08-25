@@ -60,3 +60,10 @@ function adicionarImagensGaleria() {
         galeria.appendChild(cardImg);
     });
 }
+
+const menuLateral = document.querySelector(".menu-lateral");
+const hamburguerIcon = document.querySelector("#hamburguer-icon");
+
+hamburguerIcon.addEventListener("click", () => {
+    menuLateral.classList.add("menu-aberto");
+});

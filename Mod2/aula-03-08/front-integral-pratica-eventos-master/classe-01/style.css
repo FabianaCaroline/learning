@@ -13,7 +13,12 @@ body{
 section{
     width: 100%;
     height: 100%;
-    padding: 152px 32px;
+    padding: 152px 42px 152px 0;
+
+    position: relative;
+    right: 0;
+    top: 0;
+    left: 106px;
 
     display: flex;
     flex-direction: column;
@@ -27,7 +32,7 @@ section{
 .menu-lateral{
     background-color: #313131;
 
-    position: sticky;
+    position: fixed;
     top: 0;
     bottom: 0;
 
@@ -45,6 +50,19 @@ section{
 
     margin-bottom: 40px;
 }
+.menu-lateral img:hover{
+    cursor: pointer;
+}
+.menu-aberto{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+
+    width: 199px;
+}
+
+
 .galeria{
     margin-top: 52px;
 
@@ -76,7 +94,6 @@ section{
     font-size: 20px;
     font-weight: 400;
 }
-
 
 
 
