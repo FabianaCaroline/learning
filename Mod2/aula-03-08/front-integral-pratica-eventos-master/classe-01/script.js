@@ -2,31 +2,31 @@ const imagens = [{
     src: "assets/gallery/image 1.png"
 },
 {
-   src:"assets/gallery/image 2.png"
+    src: "assets/gallery/image 2.png"
 },
 {
-   src:"assets/gallery/image 3.png"
+    src: "assets/gallery/image 3.png"
 },
 {
-   src:"assets/gallery/image 4.png"
+    src: "assets/gallery/image 4.png"
 },
 {
-   src:"assets/gallery/image 5.png"
+    src: "assets/gallery/image 5.png"
 },
 {
-   src:"assets/gallery/image 6.png"
+    src: "assets/gallery/image 6.png"
 },
 {
-   src:"assets/gallery/image 7.png"
+    src: "assets/gallery/image 7.png"
 },
 {
-   src:"assets/gallery/image 8.png"
+    src: "assets/gallery/image 8.png"
 },
 {
-   src:"assets/gallery/image 9.png"
+    src: "assets/gallery/image 9.png"
 },
 {
-   src:"assets/gallery/image 10.png"
+    src: "assets/gallery/image 10.png"
 }];
 
 const galeria = document.querySelector(".galeria");
@@ -63,7 +63,25 @@ function adicionarImagensGaleria() {
 
 const menuLateral = document.querySelector(".menu-lateral");
 const hamburguerIcon = document.querySelector("#hamburguer-icon");
+const legendaIcone = document.querySelectorAll(".oculto");
 
 hamburguerIcon.addEventListener("click", () => {
-    menuLateral.classList.add("menu-aberto");
+
+    if (menuLateral.classList.contains("menu-aberto")) {
+        menuLateral.classList.remove("menu-aberto");
+        hamburguerIcon.setAttribute("src", "assets/closed-menu.svg");
+        hamburguerIcon.setAttribute("alt", "Abrir menu");
+
+        legendaIcone.forEach(x => {
+            x.classList.add("oculto");
+        });
+    } else {
+        menuLateral.classList.add("menu-aberto");
+        hamburguerIcon.setAttribute("src", "assets/open-menu.svg");
+        hamburguerIcon.setAttribute("alt", "Fechar menu");
+
+        legendaIcone.forEach(x => {
+            x.classList.remove("oculto");
+        });
+    }
 });
