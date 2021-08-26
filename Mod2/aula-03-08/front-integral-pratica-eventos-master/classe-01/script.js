@@ -34,7 +34,6 @@ const modal = document.querySelector(".modal");
 
 
 document.body.onload = adicionarImagensGaleria;
-
 function adicionarImagensGaleria() {
 
     //criando imagens com a DOM
@@ -62,24 +61,43 @@ function adicionarImagensGaleria() {
         cardImg.appendChild(divDesc);
 
         galeria.appendChild(cardImg);
+
+        //criando icones de like
+        const likeIcon = document.createElement("img");
+        likeIcon.setAttribute("src", "assets/like.svg");
+        likeIcon.setAttribute("class", "like-icon");
+        likeIcon.classList.add("oculto");
+
+        cardImg.appendChild(likeIcon);
     });
 
-    //adicionando Event Listeners
+    //adicionando Event Listeners nos cards das imagens
     const card = document.querySelectorAll(".card-img");
     card.forEach(x => {
+
         x.addEventListener("click", (event) => {
             const index = x.getAttribute("data-index");
 
             modal.style.display = "flex";
-            modal.children[2].setAttribute("src", event.target.src);
-            modal.children[2].setAttribute("data-index", index);
+            modal.children[2].children[0].setAttribute("src", x.children[0].src);
+            modal.children[2].children[0].setAttribute("data-index", index);
 
             setasModal(index);
         });
+
+    });
+
+    //adicionando Event Listener Like na imagem do modal
+    img.addEventListener("dblclick", (event) => {
+        const index = Number(event.target.getAttribute("data-index"));
+        modal.children[2].children[1].classList.toggle("oculto");
+        card[index].children[2].classList.toggle("oculto");
     });
 }
 
+//função que verifica se a última ou a primeira foto estão sendo visualizadas e esconde uma das setas
 function setasModal(index) {
+    const card = document.querySelectorAll(".card-img");
     const setaAnterior = document.querySelector("#seta-anterior");
     const setaProximo = document.querySelector("#seta-proximo");
 
@@ -95,15 +113,22 @@ function setasModal(index) {
     } else {
         setaProximo.classList.remove("oculto");
     }
+
+    if (card[Number(index)].children[2].classList.contains("oculto")){
+        modal.children[2].children[1].classList.add("oculto");
+    } else {
+        modal.children[2].children[1].classList.remove("oculto");
+    }
 }
+
+//Adicionar Event Listeners do modal
+const img = document.querySelector("#img-modal");
+const setaProximo = document.querySelector("#seta-proximo");
+const setaAnterior = document.querySelector("#seta-anterior");
 
 modal.addEventListener("click", () => {
     modal.style.display = "none";
 });
-
-const img = document.querySelector("#img-modal");
-const setaProximo = document.querySelector("#seta-proximo");
-const setaAnterior = document.querySelector("#seta-anterior");
 
 img.addEventListener("click", (event) => {
     event.stopPropagation();
@@ -128,6 +153,9 @@ setaProximo.addEventListener("click", (event) => {
     setasModal(index.toString());
 });
 
+
+
+//Event listener para abrir e fechar o menu lateral
 const menuLateral = document.querySelector(".menu-lateral");
 const hamburguerIcon = document.querySelector("#hamburguer-icon");
 const legendaIcone = document.querySelectorAll("p");

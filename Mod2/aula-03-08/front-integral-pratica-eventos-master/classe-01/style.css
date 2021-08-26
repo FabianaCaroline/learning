@@ -89,6 +89,8 @@ section{
     margin-bottom: 40px;
     padding: 0 10px;
 
+    position: relative;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -128,9 +130,13 @@ section{
     justify-content: center;
 }
 .modal > div {
-    width: 88px;
+    position: relative;
 }
-
+.like-icon{
+    position: absolute;
+    right: 18px;
+    top: 18px;
+}
 
 
 
